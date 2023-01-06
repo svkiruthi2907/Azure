@@ -70,7 +70,17 @@
 				"outputs": [
 					{
 						"referenceName": "DelimitedText2",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"dscontainer": {
+								"value": "@pipeline().parameters.ppcontainer",
+								"type": "Expression"
+							},
+							"dsfile": {
+								"value": "@pipeline().parameters.ppfile",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			},
@@ -184,6 +194,10 @@
 			"ppfile": {
 				"type": "string",
 				"defaultValue": "SalesLTCustomer.txt"
+			},
+			"ppoutfolder": {
+				"type": "string",
+				"defaultValue": "outputnew"
 			}
 		},
 		"annotations": []
