@@ -11,7 +11,8 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "SalesLTCustomer.txt",
-				"fileSystem": "input"
+				"folderPath": "inputnew",
+				"fileSystem": "containernew"
 			},
 			"columnDelimiter": "\t",
 			"escapeChar": "\\",
