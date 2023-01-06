@@ -1,0 +1,9 @@
+{
+	"name": "testprojectkiru",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "1fee2e49-fc0d-4b15-872f-7dd2d4d5ae4a",
+		"tenantId": "fb1857ee-db49-4b66-9ba6-20a57aedbd05"
+	}
+}
