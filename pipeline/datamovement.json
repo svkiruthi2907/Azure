@@ -50,7 +50,12 @@
 				"inputs": [
 					{
 						"referenceName": "DelimitedText1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"dscontainer": "containernew",
+							"dsfolder": "inputnew",
+							"dsfile": "SalesLTCustomer.txt"
+						}
 					}
 				],
 				"outputs": [
