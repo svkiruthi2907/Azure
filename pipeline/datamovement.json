@@ -76,6 +76,10 @@
 								"value": "@pipeline().parameters.ppcontainer",
 								"type": "Expression"
 							},
+							"dsoutfolder": {
+								"value": "@pipeline().parameters.ppoutfolder",
+								"type": "Expression"
+							},
 							"dsfile": {
 								"value": "@pipeline().parameters.ppfile",
 								"type": "Expression"
