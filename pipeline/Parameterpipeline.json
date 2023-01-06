@@ -1,0 +1,108 @@
+{
+	"name": "Parameterpipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ppsource",
+						"type": "DatasetReference",
+						"parameters": {
+							"ppsourcecontainer": {
+								"value": "@pipeline().parameters.ppcontainer",
+								"type": "Expression"
+							},
+							"ppsourcedir": {
+								"value": "@pipeline().parameters.ppinputdirect",
+								"type": "Expression"
+							},
+							"ppsourcefile": {
+								"value": "@pipeline().parameters.ppfilename",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ppsinkout",
+						"type": "DatasetReference",
+						"parameters": {
+							"ppsinkcontainer": {
+								"value": "@pipeline().parameters.ppcontainer",
+								"type": "Expression"
+							},
+							"ppsinkdir": {
+								"value": "@pipeline().parameters.ppoutput",
+								"type": "Expression"
+							},
+							"ppsinkfile": {
+								"value": "@pipeline().parameters.ppfilename",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"ppcontainer": {
+				"type": "string"
+			},
+			"ppinputdirect": {
+				"type": "string"
+			},
+			"ppoutput": {
+				"type": "string"
+			},
+			"ppfilename": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
