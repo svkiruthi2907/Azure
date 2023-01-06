@@ -52,9 +52,18 @@
 						"referenceName": "DelimitedText1",
 						"type": "DatasetReference",
 						"parameters": {
-							"dscontainer": "containernew",
-							"dsfolder": "inputnew",
-							"dsfile": "SalesLTCustomer.txt"
+							"dscontainer": {
+								"value": "@pipeline().parameters.ppcontainer",
+								"type": "Expression"
+							},
+							"dsfolder": {
+								"value": "@pipeline().parameters.ppinputfolder",
+								"type": "Expression"
+							},
+							"dsfile": {
+								"value": "@pipeline().parameters.ppfile",
+								"type": "Expression"
+							}
 						}
 					}
 				],
@@ -163,6 +172,20 @@
 				}
 			}
 		],
+		"parameters": {
+			"ppcontainer": {
+				"type": "string",
+				"defaultValue": "containernew"
+			},
+			"ppinputfolder": {
+				"type": "string",
+				"defaultValue": "inputnew"
+			},
+			"ppfile": {
+				"type": "string",
+				"defaultValue": "SalesLTCustomer.txt"
+			}
+		},
 		"annotations": []
 	}
 }
