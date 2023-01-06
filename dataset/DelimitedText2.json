@@ -5,13 +5,34 @@
 			"referenceName": "AzureDataLakeStorage2",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"dscontainer": {
+				"type": "string"
+			},
+			"dsoutfolder": {
+				"type": "string"
+			},
+			"dsfile": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "outputnew",
-				"fileSystem": "containernew"
+				"fileName": {
+					"value": "@dataset().dsfile",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().dsoutfolder",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().dscontainer",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
