@@ -19,7 +19,7 @@
 					"value": "@dataset().dsfilename",
 					"type": "Expression"
 				},
-				"folderPath": "Adworks/output/txt",
+				"folderPath": "Adworks/output/csv",
 				"fileSystem": "containernew"
 			},
 			"columnDelimiter": ",",
