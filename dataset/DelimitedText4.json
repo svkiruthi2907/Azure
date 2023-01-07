@@ -15,6 +15,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().ddfilename",
+					"type": "Expression"
+				},
 				"folderPath": "Adworks/input",
 				"fileSystem": "containernew"
 			},
