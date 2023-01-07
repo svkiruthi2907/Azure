@@ -125,14 +125,8 @@
 										],
 										"outputs": [
 											{
-												"referenceName": "DelimitedText5",
-												"type": "DatasetReference",
-												"parameters": {
-													"dsfilename": {
-														"value": "@item().name",
-														"type": "Expression"
-													}
-												}
+												"referenceName": "DelimitedText6",
+												"type": "DatasetReference"
 											}
 										]
 									}
