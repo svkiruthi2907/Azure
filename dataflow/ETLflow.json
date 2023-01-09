@@ -1,0 +1,63 @@
+{
+	"name": "ETLflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "source_data_flow",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "sink_data_flow",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "filter1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ProductID as string,",
+				"          Name as string,",
+				"          ProductNumber as string,",
+				"          Color as string,",
+				"          StandardCost as string,",
+				"          ListPrice as string,",
+				"          Size as string,",
+				"          Weight as string,",
+				"          ProductCategoryID as string,",
+				"          ProductModelID as string,",
+				"          SellStartDate as string,",
+				"          SellEndDate as string,",
+				"          DiscontinuedDate as string,",
+				"          ThumbNailPhoto as string,",
+				"          ThumbnailPhotoFileName as string,",
+				"          rowguid as string,",
+				"          ModifiedDate as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 filter(upper(Color)=='RED') ~> filter1",
+				"filter1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
