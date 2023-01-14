@@ -1,0 +1,25 @@
+{
+	"name": "job_trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "metadatapipe2",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1,
+				"startTime": "2023-01-14T16:27:00",
+				"endTime": "2023-01-15T10:47:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
