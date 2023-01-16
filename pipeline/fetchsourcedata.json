@@ -18,6 +18,49 @@
 					"url": "http://health.data.ny.gov/api/views/myeu-hzra/rows.csv",
 					"method": "GET"
 				}
+			},
+			{
+				"name": "Web2",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Web1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": {
+						"value": "@activity('Web1').output",
+						"type": "Expression"
+					},
+					"method": "PUT",
+					"body": {
+						"value": "@activity('Web1').output",
+						"type": "Expression"
+					},
+					"linkedServices": [
+						{
+							"referenceName": "AzureDataLakeStorage5",
+							"type": "LinkedServiceReference"
+						}
+					],
+					"datasets": [
+						{
+							"referenceName": "Jsonwebsource",
+							"type": "DatasetReference"
+						}
+					]
+				}
 			}
 		],
 		"annotations": []

@@ -1,0 +1,19 @@
+{
+	"name": "Jsonwebsource",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage5",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Adworks",
+				"fileSystem": "containernew"
+			}
+		},
+		"schema": {}
+	}
+}
